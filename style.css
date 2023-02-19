@@ -190,6 +190,12 @@ form[data-state=error] .message--error {
   color: #1f2335;
 }
 
+@media screen and (max-width: 480px) {
+  .task-container {
+    max-width: 300px;
+  }
+}
+
 
 
 ul {
