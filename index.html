@@ -1,31 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
   <meta charset="UTF-8">
   <title>To-Do List - Randil Wijayananda</title>
   <link rel="shortcut icon" href="images/favicon.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-27EMJD8L0R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-27EMJD8L0R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    gtag('config', 'G-27EMJD8L0R');
-  </script>
+  gtag('config', 'G-27EMJD8L0R');
+</script>
+
 </head>
 <body>
   <header>
     <h1>To-Do List</h1>
+    <p>Enter the task and click "<strong>Add</strong>" to add it to the list. Click the checkbox to mark the task as complete.</p>
   </header>
-  <div class="list-container">
-    <form id="form">
-      <input type="text" id="task-input" placeholder="Add task...">
-      <button type="submit" id="add-btn">Add</button>
+<!-- partial:index.partial.html -->
+  <div class="container">
+    <form data-state="typing">
+      <input type="text" id="task-input" placeholder="Add a task...">
+      <button type="submit" id="add-btn">
+        <div class="submit-bg"></div>
+        <svg class="icon-arrow" viewBox="0 0 448 512">
+          <path d="M240 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H176V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H384c17.7 0 32-14.3 32-32s-14.3-32-32-32H240V80z"/>
+        </svg>
+        <svg class="icon-error" viewBox="0 0 100 100">
+        <path d="M10 10 L90 90 M10 90 L90 10"/>
+        </svg>
+        <svg class="icon-success" viewBox="0 0 100 100">
+          <path d="M0 60 L40 100 L100 0"/>
+        </svg>
+      </button>
+      <span class="message message--error">Enter a Task!</span>
+      <span class="message message--success">Task Added!</span>
     </form>
-    <ul id="task-list"></ul>
+
+    <div class="task-container">
+      <ul id="task-list"></ul>
+    </div>
   </div>
-  <script src="script.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js'></script><script  src="./script.js"></script>
+
 </body>
 </html>
